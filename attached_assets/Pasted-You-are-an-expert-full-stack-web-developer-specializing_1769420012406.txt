@@ -1,0 +1,52 @@
+You are an expert full-stack web developer specializing in building secure, scalable MVPs for non-profits and social impact projects. I need you to design and generate code for a cloud-based web application (MVP) for the Food and Health Systems Alliance (FHSA), an organization in Abuja, Nigeria, that helps female-led food businesses access productive assets like equipment, storage, and facilities.
+The app focuses on two main user roles:
+
+Business Users (female-led food entrepreneurs with varying digital literacy—keep UI simple, mobile-responsive, and intuitive).
+Admins (FHSA staff for oversight and management).
+
+Key principles:
+
+Mobile-first, responsive design (use CSS frameworks like Tailwind or Bootstrap).
+Secure and compliant with NDPR (Nigeria Data Protection Regulation) and UK GDPR (e.g., encrypt PII, get consent for data, audit logs).
+Scalable cloud architecture (suggest AWS/Heroku deployment).
+Tech stack: Front-end in React.js (with React Router for navigation, Zustand/Redux for state), Back-end in Node.js/Express.js (RESTful APIs), Database in PostgreSQL (or MongoDB if you prefer NoSQL). Use JWT for auth, Socket.io for real-time notifications.
+Integrations: Paystack for payments (handle webhooks), SendGrid/Twilio for email/SMS notifications.
+Testing: Include unit tests (Jest) and E2E (Cypress).
+Deployment: Dockerize for easy cloud setup.
+Accessibility: WCAG 2.1 (alt text, keyboard nav).
+Performance: Optimize for low-connectivity areas like Abuja (lazy loading, caching).
+
+Database Schema Outline:
+
+Users: id, email/phone, password_hash, business_name, type (e.g., 'bakery'), location (string or geo), production_focus, capacity (optional number), certifications (array), needs (array), status (enum: pending, approved, restricted), role (enum: business_user, admin), created_at.
+Assets: id, type (e.g., 'cold_storage'), location, availability (JSON schedule/array of dates), cost (decimal), duration_options (array), conditions (text), images (array URLs), specs (JSON), owner_id (optional FK), active (boolean).
+Requests: id, user_id (FK), asset_id (FK), dates (daterange JSON), purpose (text), status (enum: pending, approved, rejected, completed), payment_id (FK), notes (text), feedback (JSON).
+Transactions: id, request_id (FK), amount, status (enum: pending, success, failed), ref_id (string from Paystack), timestamp.
+Audit_Logs: id, user_id, action (e.g., 'verify_user'), details (JSON), timestamp.
+
+Business User Journey and Features:
+
+Registration/Onboarding: Multi-step form (email/phone validation, business details). Save as pending. Optional fields for personalization.
+Profile Verification: Display status banner. Unlock features post-approval (notify via email/in-app).
+Asset Discovery/Search: Dashboard with search bar, filters (location, type, capacity). Grid/list view of asset cards (image, type, availability, cost). Detailed page with calendar, specs.
+Request/Booking: Form for dates/purpose. Validate availability, submit to admin. Real-time status tracking in dashboard.
+Payments: If cost applies, integrate Paystack popup. Handle success/fail states, record transactions.
+Access/Usage/Completion: Show booking details, reminders (cron jobs). Post-usage feedback form.
+Ongoing: Usage history, personalized recommendations, notifications for new assets.
+
+Admin Dashboard Features:
+
+Secure login (/admin route).
+Tabs: Users (list, verify/edit/delete), Assets (CRUD with image upload), Requests (queue, approve/reject), Transactions (logs, exports), Monitoring (dashboards with charts for active users, asset utilization %, request stats).
+Reporting: CSV/PDF exports for impact metrics.
+
+Full Implementation Steps:
+
+Set up project structure: folders for front-end (src/components, src/pages), back-end (routes, models, controllers).
+Implement auth middleware (JWT login/register).
+Build APIs: e.g., POST /register, GET /assets?filter=location=Abuja, POST /requests, etc.
+Front-end pages: Login/Register, User Dashboard, Asset List/Detail, Request Form, Admin Panels.
+Add real-time (WebSockets for notifications/updates).
+Integrate payments: Paystack init and webhook endpoint.
+Add security: Rate limiting, input sanitization.
+Documentation: README with setup instructions, API docs (Swagger if possible).

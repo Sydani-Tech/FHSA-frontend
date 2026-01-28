@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand Colors - Deep Blue/Green with vibrant accents */
+  --primary: 220 90% 45%;    /* #0B4FCD - Trustworthy Blue */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 160 84% 39%;  /* #10B981 - Success Green for eco/growth feel */
+  --secondary-foreground: 0 0% 100%;
+
+  --accent: 38 92% 50%;      /* #F59E0B - Amber for calls to action */
+  --accent-foreground: 0 0% 100%;
+
+  --background: 210 20% 98%; /* Light Cool Gray */
+  --foreground: 222 47% 11%; /* Dark Slate */
+
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221.2 83.2% 53.3%;
+
+  --radius: 0.75rem;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+}
+
+
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+    letter-spacing: var(--tracking-normal);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight text-foreground;
+  }
+  .theme {
+    --font-sans: DM Sans, sans-serif;
+    --font-mono: IBM Plex Mono, monospace;
+    --font-serif: Lora, serif;
+    --radius: 0.5rem;
+    --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
+    --tracking-tight: calc(var(--tracking-normal) - 0.025em);
+    --tracking-wide: calc(var(--tracking-normal) + 0.025em);
+    --tracking-wider: calc(var(--tracking-normal) + 0.05em);
+    --tracking-widest: calc(var(--tracking-normal) + 0.1em);
+  }
+  :root {
+    --background: oklch(0.9751 0.0127 244.2507);
+    --foreground: oklch(0.3729 0.0306 259.7328);
+    --card: oklch(1.0000 0 0);
+    --card-foreground: oklch(0.3729 0.0306 259.7328);
+    --popover: oklch(1.0000 0 0);
+    --popover-foreground: oklch(0.3729 0.0306 259.7328);
+    --primary: oklch(0.7227 0.1920 149.5793);
+    --primary-foreground: oklch(1.0000 0 0);
+    --secondary: oklch(0.9514 0.0250 236.8242);
+    --secondary-foreground: oklch(0.4461 0.0263 256.8018);
+    --muted: oklch(0.9670 0.0029 264.5419);
+    --muted-foreground: oklch(0.5510 0.0234 264.3637);
+    --accent: oklch(0.9505 0.0507 163.0508);
+    --accent-foreground: oklch(0.3729 0.0306 259.7328);
+    --destructive: oklch(0.6368 0.2078 25.3313);
+    --destructive-foreground: oklch(1.0000 0 0);
+    --border: oklch(0.9276 0.0058 264.5313);
+    --input: oklch(0.9276 0.0058 264.5313);
+    --ring: oklch(0.7227 0.1920 149.5793);
+    --chart-1: oklch(0.7227 0.1920 149.5793);
+    --chart-2: oklch(0.6959 0.1491 162.4796);
+    --chart-3: oklch(0.5960 0.1274 163.2254);
+    --chart-4: oklch(0.5081 0.1049 165.6121);
+    --chart-5: oklch(0.4318 0.0865 166.9128);
+    --radius: 0.5rem;
+    --sidebar: oklch(0.9514 0.0250 236.8242);
+    --sidebar-foreground: oklch(0.3729 0.0306 259.7328);
+    --sidebar-primary: oklch(0.7227 0.1920 149.5793);
+    --sidebar-primary-foreground: oklch(1.0000 0 0);
+    --sidebar-accent: oklch(0.9505 0.0507 163.0508);
+    --sidebar-accent-foreground: oklch(0.3729 0.0306 259.7328);
+    --sidebar-border: oklch(0.9276 0.0058 264.5313);
+    --sidebar-ring: oklch(0.7227 0.1920 149.5793);
+    --font-sans: DM Sans, sans-serif;
+    --font-serif: Lora, serif;
+    --font-mono: IBM Plex Mono, monospace;
+    --shadow-color: hsl(0 0% 0%);
+    --shadow-opacity: 0.1;
+    --shadow-blur: 8px;
+    --shadow-spread: -1px;
+    --shadow-offset-x: 0px;
+    --shadow-offset-y: 4px;
+    --letter-spacing: 0em;
+    --spacing: 0.25rem;
+    --shadow-2xs: 0px 4px 8px -1px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0px 4px 8px -1px hsl(0 0% 0% / 0.05);
+    --shadow-sm: 0px 4px 8px -1px hsl(0 0% 0% / 0.10), 0px 1px 2px -2px hsl(0 0% 0% / 0.10);
+    --shadow: 0px 4px 8px -1px hsl(0 0% 0% / 0.10), 0px 1px 2px -2px hsl(0 0% 0% / 0.10);
+    --shadow-md: 0px 4px 8px -1px hsl(0 0% 0% / 0.10), 0px 2px 4px -2px hsl(0 0% 0% / 0.10);
+    --shadow-lg: 0px 4px 8px -1px hsl(0 0% 0% / 0.10), 0px 4px 6px -2px hsl(0 0% 0% / 0.10);
+    --shadow-xl: 0px 4px 8px -1px hsl(0 0% 0% / 0.10), 0px 8px 10px -2px hsl(0 0% 0% / 0.10);
+    --shadow-2xl: 0px 4px 8px -1px hsl(0 0% 0% / 0.25);
+    --tracking-normal: 0em;
+  }
+
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl dark:bg-black/40 dark:border-white/10;
+  }
+}
+
+/* Ag-Grid Premium Theme Overrides */
+/* Ag-Grid Custom Theme - Reference Design Match */
+.ag-theme-quartz, .ag-theme-quartz-dark {
+    /* Header Separators - Subtle */
+    --ag-header-column-separator-display: block;
+    --ag-header-column-separator-height: 40%;
+    --ag-header-column-separator-width: 1px;
+    --ag-header-column-separator-color: #e2e8f0; /* slater-200, very light */
+
+    /* Layout */
+    --ag-grid-size: 8px;
+    --ag-list-item-height: 50px;
+    --ag-font-family: var(--font-sans);
+    --ag-header-height: 50px;
+    --ag-font-size: 13px;
+    
+    /* Colors - Clean White/Light Gray */
+    --ag-background-color: #ffffff;
+    --ag-header-background-color: #ffffff;
+    --ag-row-hover-color: #f8fafc; /* slate-50 */
+    --ag-selected-row-background-color: #f1f5f9; /* slate-100 */
+    --ag-border-color: #f1f5f9;
+        
+    /* Remove default borders for cleaner look */
+    --ag-borders: none;
+    --ag-borders-critical: none;
+}
+
+/* Header Text styling */
+.ag-header-cell-label {
+    font-weight: 600;
+    color: #0f172a; /* slate-900 */
+    font-size: 13px;
+}
+
+/* Specific Border handling - Bottom border for rows only */
+.ag-theme-quartz .ag-row {
+    border-bottom: 1px solid #f1f5f9;
+}
+.ag-theme-quartz .ag-header-row {
+     border-bottom: 2px solid #f1f5f9;
+}
+
+/* Floating Filters */
+.ag-floating-filter-body input {
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    padding: 0 8px;
+    width: 100%;
+    font-size: 12px;
+}
+.ag-floating-filter-button {
+    display: none !important; 
+}
+
+/* Remove side borders on the last header to look clean */
+.ag-header-row .ag-header-cell:last-child {
+    border-right: none;
+}
+.ag-header-cell::after {
+    display: none !important; /* Use native separator var instead */
+}
